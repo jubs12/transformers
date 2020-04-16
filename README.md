@@ -23,6 +23,7 @@ TweetSentBR formatted data is not available due to Twitter Policy.
 3. Run task
    
    Replace {TASK_TYPE} for assin and tweesent
+   
    Replace {TASK} for assin-ptbr-rte, assin-ptbr-rte. Leave in blank for tweetsent.
 
    

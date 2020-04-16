@@ -16,7 +16,7 @@
 
 try:
     from scipy.stats import pearsonr, spearmanr
-    from sklearn.metrics import matthews_corrcoef, f1_score
+    from sklearn.metrics import matthews_corrcoef, f1_score, precision_score, recall_score, classification_report, confusion_matrix
 
     _has_sklearn = True
 except (AttributeError, ImportError):
@@ -34,11 +34,19 @@ if _has_sklearn:
 
     def acc_and_f1(preds, labels):
         acc = simple_accuracy(preds, labels)
-        f1 = f1_score(y_true=labels, y_pred=preds)
+        f1 = f1_score(y_true=labels, y_pred=preds, average='macro')
+        c_report = classification_report(labels, preds)
+        recall = recall_score(labels,preds,average='macro')
+        precision = precision_score(labels, preds,average='macro')
+        confusion = confusion_matrix(labels, preds)
         return {
             "acc": acc,
             "f1": f1,
-            "acc_and_f1": (acc + f1) / 2,
+            #"acc_and_f1": (acc + f1) / 2,
+            "recall": recall,
+            "precision": precision,
+            "classification_report":c_report,
+            "confusion_matrix":confusion,
         }
 
     def pearson_and_spearman(preds, labels):
@@ -74,6 +82,10 @@ if _has_sklearn:
             return {"acc": simple_accuracy(preds, labels)}
         elif task_name == "hans":
             return {"acc": simple_accuracy(preds, labels)}
+        elif task_name == "tweetsent":
+            return acc_and_f1(preds, labels)
+        elif task_name == "assin1-rte":
+            return acc_and_f1(preds, labels)
         else:
             raise KeyError(task_name)
 

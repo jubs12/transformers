@@ -1,14 +1,15 @@
 # Transformers
-Portuguese BERT base, BERT multilingual base and RoBERTa large evaluation on ASSIN 1 rte and TweetSentBR using [https://github.com/huggingface/transformers/tree/83703cd077d615e09c5ccb2caf57a893432db189](Transformers). 
-TweetSentBR formatted data is not available due to Twitter Policy.
+Portuguese BERT base, BERT multilingual base and RoBERTa large evaluation on ASSIN 1 rte and TweetSentBR using [Transformers](https://github.com/huggingface/transformers/tree/83703cd077d615e09c5ccb2caf57a893432db189).  [Original README](https://github.com/huggingface/transformers/blob/83703cd077d615e09c5ccb2caf57a893432db189/README.md)
 
-Original README in https://github.com/huggingface/transformers/blob/83703cd077d615e09c5ccb2caf57a893432db189/README.md
+
+TweetSentBR formatted data is not available due to Twitter Policy.
 
 ##  Instructions
 
 
 
 1.  Install requirements
+
    ```bash
    pip install -r ./examples/requirements.txt
    ```

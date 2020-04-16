@@ -39,4 +39,4 @@ else
 fi
 
 rm -rfv /root/.cache/torch/transformers/
-python3 examples/run_glue.py  --task_name assin1-rte --do_train --do_eval $ARGS --model_name_or_path $MODEL --output_dir data/$TASK"$ORIGINAL"/output/$MODEL
+python3 examples/run_glue.py  --task_name assin1-rte --do_train --do_eval $ARGS --model_name_or_path $MODEL --output_dir data/$TASK"$ORIGINAL"/output/$MODEL  --overwrite_cache

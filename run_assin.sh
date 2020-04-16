@@ -4,7 +4,7 @@ TASK=$1
 OPTION=$2
 MODEL=$3
 
-PT_ARGS="--data_dir ../$TASK/original/   \
+PT_ARGS="--data_dir data/$TASK/original/ \
          --model_type bert               \
          --logging_steps 400             \
          --save_steps 3000               \
@@ -15,7 +15,7 @@ PT_ARGS="--data_dir ../$TASK/original/   \
          --per_gpu_eval_batch_size  1    \
          --gradient_accumulation_steps 8"
 
-EN_ARGS="--data_dir ../$TASK                \
+EN_ARGS="--data_dir data/$TASK              \
          --model_type roberta               \
          --logging_steps 400                \
          --save_steps 3000                  \
@@ -26,10 +26,6 @@ EN_ARGS="--data_dir ../$TASK                \
          --gradient_accumulation_steps 16   \
          --num_train_epochs 11.0            \
          --warmup_steps 120"     
-
-mkdir $TASK $TASK/original $TASK/output $TASK/output/$MODEL
-rm -rfv /root/.cache/torch/transformers/
-rm -rfv /container/*/original/cached*
 
 if [ "$OPTION" = "PT" ]; then
    ARGS=$PT_ARGS
@@ -42,14 +38,5 @@ else
    echo "invalid option"
 fi
 
-echo $ORIGINAL
-
-#cp -v mt-dnn_port/Training/assin/$TASK/"$ORIGINAL$TASK"_test.tsv $TASK/"$ORIGINAL"dev.tsv
-#cp -v mt-dnn_port/Training/assin/$TASK/"$ORIGINAL$TASK"_train.tsv $TASK/"$ORIGINAL"train.tsv
-#sed -i '1s/^/idx    label   sentence1   sentence2\n/' $TASK/"$ORIGINAL"dev.tsv
-#sed -i '1s/^/idx    label   sentence1   sentence2\n/' $TASK/"$ORIGINAL"train.tsv
-
-cd transformers_nadia
-python3 examples/run_glue.py  --task_name assin1-rte --do_train --do_eval $ARGS --model_name_or_path $MODEL --output_dir ../$TASK/output/$MODEL --overwrite_cache  --overwrite_output_dir
-
-cd ..
+rm -rfv /root/.cache/torch/transformers/
+python3 examples/run_glue.py  --task_name assin1-rte --do_train --do_eval $ARGS --model_name_or_path $MODEL --output_dir data/$TASK"$ORIGINAL"/output/$MODEL

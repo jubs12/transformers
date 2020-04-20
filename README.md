@@ -50,8 +50,6 @@ TweetSentBR formatted data is not available due to Twitter Policy.
 
 ## Results
 
-Transformers repository was modified to output predictions.py in
-- data/{TASK}/{original}/{model} if Portuguese model
-- data/{TASK}/{model} otherwise.
+Transformers repository was modified to output predictions.py in output/{MODEL}/{TASK}
 
 XML ASSIN formatted output are also available. Similarity labels were not modified.

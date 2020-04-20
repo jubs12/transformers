@@ -37,7 +37,7 @@ TweetSentBR formatted data is not available due to Twitter Policy.
    b)  For Portuguese BERT
    
     ```bash
-    bash run_{TASK_TYPE}.sh {TASK} PT bert-base-multilingual-cased
+    bash run_{TASK_TYPE}.sh {TASK} PT neuralmind/bert-base-portuguese-cased
     ```
    
     c) For RoBERTa

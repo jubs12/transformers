@@ -29,14 +29,13 @@ EN_ARGS="--data_dir data/$TASK              \
 
 if [ "$OPTION" = "PT" ]; then
    ARGS=$PT_ARGS
-   ORIGINAL="original/"
 elif [ "$OPTION" = "EN" ]; then
    ARGS=$EN_ARGS
    MODEL=roberta-large
-   ORIGINAL=""
 else
-   echo "invalid option"
+   echo "invalid option">&2
+   exit 127
 fi
 
 rm -rfv /root/.cache/torch/transformers/
-python3 examples/run_glue.py  --task_name tweetsent --do_train --do_eval $ARGS --model_name_or_path $MODEL --output_dir ../$TASK"$ORIGINAL"/output/$MODEL --overwrite_cache
+python3 examples/run_glue.py  --task_name tweetsent --do_train --do_eval $ARGS --model_name_or_path $MODEL --output_dir data/output/$MODEL/$TASK --overwrite_cache

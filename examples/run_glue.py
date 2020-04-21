@@ -315,9 +315,9 @@ def evaluate(args, model, tokenizer, prefix=""):
         result = compute_metrics(eval_task, preds, out_label_ids)
         results.update(result)
         
-        predictions_file = os.path.join(predictions, prefix, "predictions.txt")
+        predictions_file = os.path.join(eval_output_dir, prefix, "predictions.txt")
         with open(predictions_file, 'w') as writer:
-            json.dump(preds, writer)
+            json.dump(preds.tolist(), writer)
 
         output_eval_file = os.path.join(eval_output_dir, prefix, "eval_results.txt")
         with open(output_eval_file, "w") as writer:

@@ -53,9 +53,13 @@ TweetSentBR formatted data is not available due to Twitter Policy.
 
 ## Results
 
-Transformers repository was modified to output predictions.py in output/{MODEL}/{TASK}.
+run_{TASK_TYPE}.sh outputs predictions.json in output/{MODEL}/{TASK}.
 
-Evaluations and XML ASSIN are in output/{MODEL}.
 
+- Task evaluations and ASSIN XML in output/{MODEL}.
+
+- Task evaluation scripts in {TASK_TYPE}<span>_eval.yaml</span>
+
+- ASSIN xml formatting script in assin_xml.yaml
 
 XML ASSIN Similarity labels were not modified.

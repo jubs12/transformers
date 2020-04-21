@@ -1,5 +1,8 @@
 # Transformers
-Portuguese BERT base, BERT multilingual base and RoBERTa large evaluation on ASSIN 1 rte and TweetSentBR using [Transformers](https://github.com/huggingface/transformers/tree/83703cd077d615e09c5ccb2caf57a893432db189).  [Original README](https://github.com/huggingface/transformers/blob/83703cd077d615e09c5ccb2caf57a893432db189/README.md)
+Portuguese BERT base, BERT multilingual base and RoBERTa large evaluation on ASSIN 1 rte and TweetSentBR using [Transformers](https://github.com/huggingface/transformers/tree/83703cd077d615e09c5ccb2caf57a893432db189) in addition [ASSIN 1 sts and ASSIN2 evalution](https://github.com/ruanchaves/assin).
+
+
+[Original README](https://github.com/huggingface/transformers/blob/83703cd077d615e09c5ccb2caf57a893432db189/README.md)
 
 
 TweetSentBR formatted data is not available due to Twitter Policy.

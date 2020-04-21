@@ -20,7 +20,7 @@ TweetSentBR formatted data is not available due to Twitter Policy.
 2. Update Transformers package to support these tasks
 
    ```bash
-   pip install --upgrade 
+   pip install --upgrade .
    ```
 
 3. Run task
